@@ -1,0 +1,33 @@
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-3 col-12">
+            <img class="mb-4" src="assets/images/Fellow-Benefits.jpg">
+            <a *ngIf="About != null" href="{{About.sber_link}}">
+                <img src="{{About.sber_image != '' && About.sber_image !=null ? url+About.sber_image:SberImage}}"
+                    alt="First slide">
+            </a>
+        </div>
+        <div class="col-md-9 col-12">
+            <div class="row member_page">
+                <div class="col-md-4 col-6 text-center mb-4">
+                    <div class="member_page_list">
+                        <img src="assets/images/BNH-1.jpg">
+                        <h3>Prof. Budhindra Nath Hazarika</h3>
+                        <p><strong>Dean</strong>, College of Horticulture and Forestry,
+                            Central Agricultural University,
+                            Pasighat – 791102, Arunachal Pradesh, INDIA</p>
+                        <p class="font-weight-500">FSBER/379/2020</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-6 text-center mb-4">
+                    <div class="member_page_list">
+                        <img src="assets/images/members1.jpg">
+                        <h3>Prof. BADIUDDIN AHMED</h3>
+                        <p>Department of Management and Gachibowli , Hyderabad T.S.-500 032, India</p>
+                        <p class="font-weight-500">Membership ID:<br>SAS/FSASS-126</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

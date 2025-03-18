@@ -1,0 +1,80 @@
+<div class="container">
+
+    <div class="row mt-5">
+        <div class="col-md-3 col-12 mb-5">
+            <img class="mb-4" src="assets/images/Fellow-Benefits.jpg">
+            <a *ngIf="About != null" href="{{About.sber_link}}">
+                <img src="{{About.sber_image != '' && About.sber_image !=null ? url+About.sber_image:SberImage}}"
+                    alt="First slide">
+            </a>
+        </div>
+        <div class="col-md-8 col-12 offset-md-1 contact_form">
+            <h2 class="font-weight-600">Join as Member</h2>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" class="mt-5">
+                <div class="md-form md-file-form form-sm">
+                    <label class="">Select Membership Type</label>
+                    <select class="form-control form-control-sm" formControlName="membership_type"
+                        (change)="getPaymentInfo($event)">
+                        <option value="">Select Mebership Type</option>
+                        <option *ngFor="let Members of Member_Master" value="{{Members.title}}">{{Members.title}}
+                        </option>
+                    </select>
+                </div>
+                <div class="md-form form-sm">
+                    <input formControlName="name" mdbInput type="text" id="JoinMemberName"
+                        class="form-control form-control-sm">
+                    <label for="JoinMemberName" class="">Name</label>
+                </div>
+                <div class="md-form form-sm">
+                    <input formControlName="email" mdbInput type="email" id="JoinMemberEmail"
+                        class="form-control form-control-sm">
+                    <label for="JoinMemberEmail" class="">Email</label>
+                </div>
+                <div class="md-form form-sm">
+                    <input formControlName="phone" mdbInput type="tel" id="JoinMemberMobile"
+                        class="form-control form-control-sm">
+                    <label for="JoinMemberMobile" class="">Mobile</label>
+                </div>
+                <div class="md-form form-sm">
+                    <input formControlName="complete_affiliation" mdbInput type="text" id="JoinMemberAffiliation"
+                        class="form-control form-control-sm">
+                    <label for="JoinMemberAffiliation" class="">Complete Affiliation</label>
+                </div>
+                <div class="md-form form-sm">
+                    <input formControlName="amount_paid" mdbInput type="text" id="JoinMemberAmountPaid"
+                        class="form-control form-control-sm">
+                    <label for="JoinMemberAmountPaid" class="">Amount Paid</label>
+                </div>
+                <div class="md-form form-sm">
+                    <input formControlName="transaction_id" mdbInput type="text" id="JoinMemberTransactionId"
+                        class="form-control form-control-sm">
+                    <label for="JoinMemberTransactionId" class="">Transaction Id</label>
+                </div>
+                <div class="md-form md-file-form form-sm">
+                    <label for="JoinMemberPhoto" class="">{{PhotoBtn}}</label>
+                    <input type="file" id="JoinMemberPhoto" (change)="onFileChangePhoto($event.target.files)"
+                        class="form-control form-control-sm">
+                </div>
+                <div class="md-form md-file-form form-sm">
+                    <label for="JoinMemberBiodate" class="">{{BiodataBtn}}</label>
+                    <input type="file" id="JoinMemberBiodate" (change)="onFileChangeBiodata($event.target.files)"
+                        class="form-control form-control-sm">
+                </div>
+                <div class="md-form form-sm">
+                    <input formControlName="join_members_remarks" mdbInput type="text" id="JoinMemberRemarks"
+                        class="form-control form-control-sm">
+                    <label for="JoinMemberRemarks" class="">Remarks</label>
+                </div>
+                <p *ngIf="submitMessage!=null" [ngStyle]="{'background-color': submitBG}" class="p-2 text-white">
+                    {{submitMessage}}
+                </p>
+
+                <div class="md-form form-sm">
+                    <button type="submit" [disabled]="!form.valid"
+                        class="custom_btn w-100 border_none">{{Submit}}</button>
+                    <div style="display: none;" [innerHTML]="PaymentDiv"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

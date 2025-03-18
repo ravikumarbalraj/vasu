@@ -1,0 +1,53 @@
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-6 offset-md-3 contact_form ">
+            <h2 class="font-weight-600">Get Your Certificate</h2>
+            <p class="text-justify">If you want to receive your editorial certificate, reviewer certificate or publication certificate or any
+                other certificate, you need to fill up the form with given information and your certificate will be
+                emailed within 2-3 working days</p>
+            <form class="mt-5" [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="md-form form-sm">
+                    <input mdbInput type="text" id="FullName" formControlName="name" required class="form-control form-control-sm">
+                    <label for="FullName" class="">Full Name (as to be printed in certificate)</label>
+                </div>
+                <div class="md-form form-sm">
+                    <input mdbInput type="text" id="CompleteAffiliation" formControlName="complete_affiliation" required class="form-control form-control-sm">
+                    <label for="CompleteAffiliation" class="">Complete Affiliation (as to be printed in certificate)</label>
+                </div>
+                <div class="md-form md-file-form form-sm">
+                    <label class="">Select Journal from list</label>
+                    <select class="form-control form-control-sm" formControlName="journal" required>
+                        <option value="">Select Journal</option>
+                        <option *ngFor="let journals of Journal" value="{{journals.title}}">{{journals.title}}</option>
+                    </select>
+                </div>
+                <div class="md-form md-file-form form-sm">
+                    <label class="">Select Cerfiticate</label>
+                    <select class="form-control form-control-sm" formControlName="certificate_type" required>
+                        <option value="">Select Cerfiticate</option>
+                        <option value="Editorial Certificate">Editorial Certificate</option>
+                        <option value="Reviewer Certificate">Reviewer Certificate</option>
+                        <option value="Publication Certificate">Publication Certificate</option>
+                    </select>
+                </div>
+                <div class="md-form form-sm">
+                    <input mdbInput type="text" formControlName="manuscript" required id="Manuscript" class="form-control form-control-sm">
+                    <label for="Manuscript" class="">Membership/Manuscript ID No.</label>
+                </div>
+                <div class="md-form form-sm">
+                    <input mdbInput type="email" formControlName="email" required id="JoinMemberEmail" class="form-control form-control-sm">
+                    <label for="JoinMemberEmail" class="">Email</label>
+                </div>
+                <div class="md-form form-sm">
+                    <input mdbInput type="tel" formControlName="mobile" required id="JoinMemberMobile" class="form-control form-control-sm">
+                    <label for="JoinMemberMobile" class="">Mobile</label>
+                </div>
+                <p *ngIf="submitMessage!=null" [ngStyle]="{'background-color': submitBG}" class="p-2 text-white">{{submitMessage}}</p>
+                <div class="md-form form-sm">
+                    <button type="submit" [disabled]="!form.valid" class="custom_btn w-100 border_none">{{Submit}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

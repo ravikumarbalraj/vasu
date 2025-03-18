@@ -1,0 +1,181 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-3 col-12 mb-5">
+            <img class="mb-4" src="assets/images/Fellow-Benefits.jpg">
+
+            <a *ngIf="About != null" href="{{About.sber_link}}">
+                <img src="{{About.sber_image != '' && About.sber_image !=null ? url+About.sber_image:SberImage}}"
+                    alt="First slide">
+            </a>
+        </div>
+        <div class="col-md-8 col-12 offset-md-1 contact_form">
+            <h2 class="font-weight-600">Payment</h2>
+            <form ngNoForm name="payuform" class="mt-5" action="{{action}}" method="post">
+
+                <!--Success-->
+
+                <div class="md-form form-sm">
+                    <input [(ngModel)]="firstname" name="firstname" mdbInput type="text" id="PaymentName"
+                        class="form-control form-control-sm">
+                    <label for="PaymentName" class="">Name</label>
+                </div>
+
+                <!--Success-->
+                <div class="md-form form-sm">
+                    <input [(ngModel)]="email" name="email" mdbInput type="email" id="PaymentEmail"
+                        class="form-control form-control-sm">
+                    <label for="PaymentEmail" class="">Email</label>
+                </div>
+
+                <!--Success-->
+                <div class="md-form form-sm">
+                    <input [(ngModel)]="phone" name="phone" mdbInput type="tel" id="PaymentMobile"
+                        class="form-control form-control-sm">
+                    <label for="PaymentMobile" class="">Mobile</label>
+                </div>
+
+                <!-- <div class="md-form form-sm">
+                    <input [(ngModel)]="address" name="address" type="text" mdbInput id="PaymentAddress"
+                        class="form-control form-control-sm">
+                    <label for="PaymentAddress" class="">Address</label>
+                </div> -->
+                <!-- <div class="md-form form-sm">
+                    <input [(ngModel)]="pincode" name="pincode" mdbInput type="text" id="PaymentPincode"
+                        class="form-control form-control-sm">
+                    <label for="PaymentPincode" class="">Pincode</label>
+                </div>
+                 -->
+                <!-- <div class="md-form md-file-form form-sm">
+                    <label class="position-static">Country <span>*</span></label>
+                    <select class="form-control form-control-sm" name="country"
+                        (change)="CountryChg($event.target.value)" [(ngModel)]="country">
+                        <option value="">Select Country</option>
+                        <option *ngFor="let country of CountryData" value="{{country.country_name}}">
+                            {{country.country_name}}</option>
+                    </select>
+                </div> -->
+
+                <!-- <input type="text" name="surl" mdbInput [(ngModel)]="surl" />
+                <input type="text" name="furl" mdbInput [(ngModel)]="furl" />
+                <input type="text" name="curl" mdbInput [(ngModel)]="curl" />
+                <input type="text" name="service_provider" mdbInput [(ngModel)]="service_provider" /> -->
+
+                <!-- <div class="md-form md-file-form form-sm">
+                    <label class="position-static">State <span>*</span></label>
+                    <select class="form-control form-control-sm" name="state" (change)="StateChg($event.target.value)"
+                        [(ngModel)]="state">
+                        <option value="">Select State</option>
+                        <option *ngFor="let state of StateData" value="{{state.state_name}}">
+                            {{state.state_name}}</option>
+                    </select>
+                </div>
+                <div class="md-form form-sm">
+                    <label class="position-static">City <span>*</span></label>
+                    <select class="form-control form-control-sm" name="city" id="City" [(ngModel)]="city">
+                        <option value="">Select City</option>
+                        <option *ngFor="let city of CityData" value="{{city.city_name}}">
+                            {{city.city_name}}</option>
+                    </select>
+                </div> -->
+
+                <div class="md-form md-file-form form-sm">
+                    <label class=""> Payment For</label>
+                    <select class="form-control form-control-sm" [(ngModel)]="productinfo" name="productinfo"
+                        (change)="paymentchg($event.target.value)">
+                        <option value="">Payment For</option>
+                        <option value="Award registration charges">Award registration charges</option>
+                        <option value="Membership charges">Membership charges</option>
+                        <option value="Publication charges">Publication charges</option>
+                        <option value="Parcel/Postal charges">Parcel/Postal charges</option>
+                        <option value="Order Book">Order Book</option>
+                    </select>
+                </div>
+
+                <div class="md-form form-sm">
+                    <input [(ngModel)]="amount" name="amount" mdbInput type="text" id="amount"
+                        class=" form-control form-control-sm">
+                    <label for="amount" class="">Amount</label>
+                </div>
+
+                <!-- 
+                <div *ngIf="AwardView == true">
+                    <div class="md-form md-file-form form-sm">
+                        <label class=""> Type of Award</label>
+                        <select class="form-control form-control-sm" name="PaymentTypeOfAward"
+                            [(ngModel)]="PaymentTypeOfAward" (change)="getPaymentInfo($event.target.value)">
+                            <option value="">Select Award Type</option>
+                            <option value="Student">Student</option>
+                            <option value="RA/SRF/Teaching Associates">RA/SRF/Teaching Associates</option>
+                            <option value="Scientist/Faculty/Others">Scientist/Faculty/Others</option>
+                        </select>
+                    </div>
+                    <div class="md-form form-sm">
+                        <input [(ngModel)]="selection_ref_no" name="selection_ref_no" mdbInput type="text"
+                            id="PaymentSelectionRefNo" class="form-control form-control-sm">
+                        <label for="PaymentSelectionRefNo" class="">Selection Ref No.</label>
+                    </div>
+
+                </div>
+                <div class="md-form md-file-form form-sm" *ngIf="MembershipView == true">
+                    <label class=""> Membership Type</label>
+                    <select class="form-control form-control-sm" name="membership_type" [(ngModel)]="membership_type"
+                        (change)="getPaymentInfo($event.target.value)">
+                        <option value="">Select Membership Type</option>
+                        <option value="Fellow Member">Fellow Member</option>
+                        <option value="Life Member">Life Member</option>
+                        <option value="Regular Member">Regular Member</option>
+                        <option value="Annual Member">Annual Member</option>
+                        <option value="Student Member">Student Member</option>
+                    </select>
+                </div>
+                <div *ngIf="PublicationView == true">
+                    <div class="md-form md-file-form form-sm">
+                        <label class=""> Journal Type</label>
+                        <select class="form-control form-control-sm" name="journal" [(ngModel)]="journal"
+                            (change)="getPaymentInfo($event.target.value)">
+                            <option value="">Select Journal</option>
+                            <option value="Research Biotica">Research Biotica</option>
+                            <option value="Research Today">Research Today</option>
+                            <option value="Journal of Plant Health Issues">Journal of Plant Health Issues</option>
+                        </select>
+                    </div>
+                    <div class="md-form form-sm">
+                        <input [(ngModel)]="ms_id_no" mdbInput type="text" name="ms_id_no" id="PaymentMSIDNO"
+                            class="form-control form-control-sm">
+                        <label for="PaymentMSIDNO" class="">MS ID NO.</label>
+                    </div>
+                    <div class="md-form form-sm">
+                        <input [(ngModel)]="title" mdbInput type="text" name="title" id="PaymentTitle"
+                            class="form-control form-control-sm">
+                        <label for="PaymentTitle" class="">Title</label>
+                    </div>
+                </div>
+
+                <div class="md-form form-sm" *ngIf="OthersView == true">
+                    <input [(ngModel)]="description" mdbInput type="text" name="description" id="PaymentDescription"
+                        class="form-control form-control-sm">
+                    <label for="PaymentDescription" class="">Description</label>
+                </div>
+
+                <div class="md-form form-sm">
+                    <input [(ngModel)]="payment_remarks" mdbInput type="text" name="payment_remarks" id="PaymentRemarks"
+                        class="form-control form-control-sm">
+                    <label for="PaymentDescription" class="">Remarks</label>
+                </div> -->
+                <p *ngIf="submitMessage!=null" [ngStyle]="{'background-color': submitBG}" class="p-2 text-white">
+                    {{submitMessage}}</p>
+
+
+
+                <div class="md-form form-sm">
+                    <button type="button" *ngIf="ButtonDisable == true" class="custom_btn w-100 border_none"
+                        (click)="onSubmit()">{{Submit}}</button>
+                    <button type="submit" *ngIf="ButtonDisable == false"
+                        class="custom_btn w-100 border_none paynowbtn">{{Submit}}</button>
+                    <div style="display: none;" [innerHTML]="PaymentDiv">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

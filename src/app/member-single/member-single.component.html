@@ -1,0 +1,10 @@
+<div style="height: auto;overflow:hidden;" *ngIf="SingleMemberList != null" class="container my-5">
+    <a class="btn btn-success" style="display: block;
+    width: auto;
+    max-width: 200px;margin-bottom:20px;" [routerLink]="['/members/'+SingleMemberList.member_master]">Back to Members</a>
+    <img style="width: 300px;  float: left;  padding: 0 20px 20px 0;" src="{{url+SingleMemberList.image}}" />
+    <h2 class="sub_title">{{SingleMemberList.title}}</h2>
+    <p>{{SingleMemberList.designation}}</p>
+    <p> {{SingleMemberList.member_id}} </p>
+    <p [innerHTML]="SingleMemberList.about == null ? '':SingleMemberList.about" class="text-justify"></p>
+</div>

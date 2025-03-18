@@ -1,0 +1,15 @@
+
+
+<div class="container my-5">
+    <div class="row download_page mt-5">
+        <div *ngFor="let Award of Awards;let i= index;" class="col-12 mb-3">
+            <h2 class="cursor_pointer" [ngClass]="{active: (AwardsToggle==i)}" (click)="funToggle(i)">
+                {{Award.title}}
+                <i class="fas fa-plus" *ngIf="AwardsToggle!=i"></i>
+                <i class="fas fa-minus" *ngIf="AwardsToggle==i"></i>
+            </h2>
+            <p class="px-3 py-2" *ngIf="AwardsToggle==i" [innerHTML]="Award.description"></p>
+        </div>
+    </div>
+</div>
+

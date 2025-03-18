@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-4 contact_detail mb-5">
+            <h2  style="    font-weight: bold;"  class="sub_title">Office Address</h2>
+            <p [innerHTML]="About == null ? '':About.office_address"></p>
+            <h2 style="    margin-top: 40px;font-weight: bold;"  class="sub_title">Reach Us</h2>
+            <p [innerHTML]="About == null ? '':About.reach_us"></p>
+        </div>
+        <div class="col-md-7 offset-md-1 contact_form">
+            <h2 class="sub_title">Join With Us</h2>
+            <p>We are happy to provide reliable feedback to our members/ authors. Drop us an email and we’ll get back to
+                you soon.</p>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" class="mt-5">
+                
+                <div class="md-form form-sm">
+                    <input mdbInput type="text" id="ContactName" formControlName="name" required
+                        class="form-control form-control-sm">
+                    <label for="ContactName" class="">Name</label>
+                </div>
+                <div class="md-form form-sm">
+                    <input mdbInput type="email" id="ContactEmail" formControlName="email" required
+                        class="form-control form-control-sm">
+                    <label for="ContactEmail" class="">Email</label>
+                </div>
+                <div class="md-form form-sm">
+                    <input mdbInput type="text" id="ContactSubject" formControlName="subject" required
+                        class="form-control form-control-sm">
+                    <label for="ContactSubject" class="">Subject</label>
+                </div>
+                <div class="md-form form-sm">
+                    <textarea type="text" id="ContactMessage" formControlName="message" class="md-textarea form-control"
+                        mdbInput></textarea>
+                    <label for="ContactMessage">Message</label>
+                </div>
+                <div class="md-form form-sm">
+                    <input type="checkbox" id="ContactCheck" formControlName="contactcheck" class="mr-2 cursor_pointer">
+                    <label for="ContactCheck" class="position-static cursor_pointer">Send copy to yourself</label>
+                </div>
+                <p *ngIf="submitMessage!=null" [ngStyle]="{'background-color': submitBG}" class="p-2 text-white">{{submitMessage}}</p>
+                <div class="md-form form-sm">
+                    <button type="submit" [disabled]="!form.valid"
+                        class="custom_btn w-100 border_none">{{Submit}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

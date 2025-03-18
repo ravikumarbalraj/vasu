@@ -1,0 +1,7 @@
+select sum(ExamResult.percent) marks, ExamResult.student_id from exam_results ExamResult 
+inner join students Student on ExamResult.student_id = Student.id 
+INNER JOIN exams Exam ON ExamResult.exam_id = Exam.id 
+INNER JOIN payments Payment ON Payment.student_id = ExamResult.student_id 
+INNER JOIN packages_payments PackagesPayment ON PackagesPayment.payment_id = Payment.id 
+INNER JOIN exams_packages ExamsPackage ON ExamsPackage.exam_id = Exam.id and PackagesPayment.package_id = ExamsPackage.package_id 
+INNER JOIN packages Package ON ExamsPackage.package_id = Package.id group by ExamResult.student_id

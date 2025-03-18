@@ -1,0 +1,155 @@
+<div class="container">
+
+    <div class="row mt-5">
+        <div class="col-md-3 col-12 mb-5">
+            <img class="mb-4" src="assets/images/Fellow-Benefits.jpg">
+
+            <a *ngIf="About != null" href="{{About.sber_link}}">
+                <img src="{{About.sber_image != '' && About.sber_image !=null ? url+About.sber_image:SberImage}}"
+                    alt="First slide">
+            </a>
+        </div>
+        <div class="col-md-8 col-12 offset-md-1 contact_form">
+            <h2 class="font-weight-600">Payment</h2>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" class="mt-5">
+
+                <div class="md-form form-sm">
+                    <input formControlName="name" mdbInput type="text" id="PaymentName"
+                        class="form-control form-control-sm">
+                    <label for="PaymentName" class="">Name</label>
+                </div>
+                <div class="md-form form-sm">
+                    <input formControlName="email" mdbInput type="email" id="PaymentEmail"
+                        class="form-control form-control-sm">
+                    <label for="PaymentEmail" class="">Email</label>
+                </div>
+                <div class="md-form form-sm">
+                    <input formControlName="phone" mdbInput type="tel" id="PaymentMobile"
+                        class="form-control form-control-sm">
+                    <label for="PaymentMobile" class="">Mobile</label>
+                </div>
+                <div class="md-form form-sm">
+                    <input formControlName="address" type="text" mdbInput id="PaymentAddress"
+                        class="form-control form-control-sm">
+                    <label for="PaymentAddress" class="">Address</label>
+                </div>
+                <div class="md-form form-sm">
+                    <input formControlName="pincode" mdbInput type="text" id="PaymentPincode"
+                        class="form-control form-control-sm">
+                    <label for="PaymentPincode" class="">Pincode</label>
+                </div>
+                <div class="md-form md-file-form form-sm">
+                    <label class="position-static">Country <span>*</span></label>
+                    <select class="form-control form-control-sm" (change)="CountryChg($event.target.value)"
+                        formControlName="country">
+                        <option value="">Select Country</option>
+                        <option *ngFor="let country of CountryData" value="{{country.country_name}}">
+                            {{country.country_name}}</option>
+                    </select>
+                </div>
+
+                <div class="md-form md-file-form form-sm">
+                    <label class="position-static">State <span>*</span></label>
+                    <select class="form-control form-control-sm" (change)="StateChg($event.target.value)"
+                        formControlName="state">
+                        <option value="">Select State</option>
+                        <option *ngFor="let state of StateData" value="{{state.state_name}}">
+                            {{state.state_name}}</option>
+                    </select>
+                </div>
+                <div class="md-form form-sm">
+                    <label class="position-static">City <span>*</span></label>
+                    <select class="form-control form-control-sm" id="City" formControlName="city">
+                        <option value="">Select City</option>
+                        <option *ngFor="let city of CityData" value="{{city.city_name}}">
+                            {{city.city_name}}</option>
+                    </select>
+                </div>
+                <div class="md-form md-file-form form-sm">
+                    <label class=""> Payment For</label>
+                    <select class="form-control form-control-sm" formControlName="payment_for"
+                        (change)="paymentchg($event.target.value)">
+                        <option value="">Payment For</option>
+                        <option value="Award registration charges">Award registration charges</option>
+                        <option value="Membership charges">Membership charges</option>
+                        <option value="Publication charges">Publication charges</option>
+                        <option value="Parcel/Postal charges">Parcel/Postal charges</option>
+                    </select>
+                </div>
+                <div *ngIf="AwardView == true">
+                    <div class="md-form md-file-form form-sm">
+                        <label class=""> Type of Award</label>
+                        <select class="form-control form-control-sm" formControlName="PaymentTypeOfAward"
+                            (change)="getPaymentInfo($event.target.value)">
+                            <option value="">Select Award Type</option>
+                            <option value="Student">Student</option>
+                            <option value="RA/SRF/Teaching Associates">RA/SRF/Teaching Associates</option>
+                            <option value="Scientist/Faculty/Others">Scientist/Faculty/Others</option>
+                        </select>
+                    </div>
+                    <div class="md-form form-sm">
+                        <input formControlName="selection_ref_no" mdbInput type="text" id="PaymentSelectionRefNo"
+                            class="form-control form-control-sm">
+                        <label for="PaymentSelectionRefNo" class="">Selection Ref No.</label>
+                    </div>
+
+                </div>
+                <div class="md-form md-file-form form-sm" *ngIf="MembershipView == true">
+                    <label class=""> Membership Type</label>
+                    <select class="form-control form-control-sm" formControlName="membership_type"
+                        (change)="getPaymentInfo($event.target.value)">
+                        <option value="">Select Membership Type</option>
+                        <option value="Fellow Member">Fellow Member</option>
+                        <option value="Life Member">Life Member</option>
+                        <option value="Regular Member">Regular Member</option>
+                        <option value="Annual Member">Annual Member</option>
+                        <option value="Student Member">Student Member</option>
+                    </select>
+                </div>
+                <div *ngIf="PublicationView == true">
+                    <div class="md-form md-file-form form-sm">
+                        <label class=""> Journal Type</label>
+                        <select class="form-control form-control-sm" formControlName="journal"
+                            (change)="getPaymentInfo($event.target.value)">
+                            <option value="">Select Journal</option>
+                            <option value="Research Biotica">Research Biotica</option>
+                            <option value="Research Today">Research Today</option>
+                            <option value="Journal of Plant Health Issues">Journal of Plant Health Issues</option>
+                        </select>
+                    </div>
+                    <div class="md-form form-sm">
+                        <input formControlName="ms_id_no" mdbInput type="text" id="PaymentMSIDNO"
+                            class="form-control form-control-sm">
+                        <label for="PaymentMSIDNO" class="">MS ID NO.</label>
+                    </div>
+                    <div class="md-form form-sm">
+                        <input formControlName="title" mdbInput type="text" id="PaymentTitle"
+                            class="form-control form-control-sm">
+                        <label for="PaymentTitle" class="">Title</label>
+                    </div>
+                </div>
+
+                <div class="md-form form-sm" *ngIf="OthersView == true">
+                    <input formControlName="description" mdbInput type="text" id="PaymentDescription"
+                        class="form-control form-control-sm">
+                    <label for="PaymentDescription" class="">Description</label>
+                </div>
+
+                <div class="md-form form-sm">
+                    <input formControlName="payment_remarks" mdbInput type="text" id="PaymentRemarks"
+                        class="form-control form-control-sm">
+                    <label for="PaymentDescription" class="">Remarks</label>
+                </div>
+                <p *ngIf="submitMessage!=null" [ngStyle]="{'background-color': submitBG}" class="p-2 text-white">
+                    {{submitMessage}}</p>
+
+                <div class="md-form form-sm">
+                    <button type="submit" [disabled]="!form.valid"
+                        class="custom_btn w-100 border_none">{{Submit}}</button>
+                    <div style="display: none;" [innerHTML]="PaymentDiv">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

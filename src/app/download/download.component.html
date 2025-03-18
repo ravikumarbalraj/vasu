@@ -1,0 +1,10 @@
+
+
+<div class="container my-5">
+    <div class="row download_page mb-5">
+        <div *ngFor="let Dload of download;let i= index;" class="col-md-5 col-12 mb-3" [ngClass]="i%2==1?'offset-md-2':''" >
+            <h2>{{Dload.title}} <a href="{{url+Dload.image}}" download><i class="fas fa-download text-right"></i></a></h2>
+        </div>
+    </div>
+</div>
+

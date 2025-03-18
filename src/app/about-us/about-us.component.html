@@ -1,0 +1,7 @@
+
+<div   *ngIf="About != null" class="container my-5">
+    <h2 class="sub_title">About SBER</h2>
+    <p [innerHTML]="About == null ? '':About.sber" class="text-justify"></p>
+    <h2 class="sub_title">Our Aim and Objective</h2>
+    <p [innerHTML]="About == null ? '':About.aim" class="text-justify"></p>
+</div>

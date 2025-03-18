@@ -1,0 +1,99 @@
+<div class="joinMemberShip">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-12">
+                <h2>Bank Details</h2>
+                <ul class="bankDetails">
+                    <li *ngFor="let bank of bankDetails;let i= index;">
+                        <p>{{ bank.title }}</p>
+                        <p>{{ bank.description }}</p>
+                    </li>
+                </ul>
+                <h2>Scan QR to Pay</h2>
+                <div class="qrSection">
+                    <img *ngIf="About != null" src="{{ url+About.qr_code }}">
+                </div>
+            </div>
+            <div class="col-md-8 col-12 pl-md-5">
+                <h2>Fill-up details below and take step forward to get your Dream Book</h2>
+                <form [formGroup]="form" class="">
+                    <div class="md-form form-sm">
+                        <input mdbInput type="text" id="member_name" formControlName="member_name" required
+                            class="form-control form-control-sm">
+                        <label for="member_name" class="">Name</label>
+                    </div>
+                    <div class="md-form form-sm">
+                        <input mdbInput type="text" id="father_name" formControlName="father_name" required
+                            class="form-control form-control-sm">
+                        <label for="father_name" class="">Father Name</label>
+                    </div>
+                    <div class="md-form form-sm">
+                        <input mdbInput type="text" id="date_of_birth" formControlName="date_of_birth" required
+                            class="form-control form-control-sm">
+                        <label for="date_of_birth" class="">Date of birth</label>
+                    </div>
+                    <div class="md-form form-sm">
+                        <input mdbInput type="text" id="highest_academic" formControlName="highest_academic" required
+                            class="form-control form-control-sm">
+                        <label for="highest_academic" class="">Highest Academic Qualification</label>
+                    </div>
+                    <div class="md-form form-sm">
+                        <input mdbInput type="text" id="outstanding_contribution"
+                            formControlName="outstanding_contribution" required class="form-control form-control-sm">
+                        <label for="outstanding_contribution" class="">Outstanding Contribution</label>
+                    </div>
+                    <div class="md-form form-sm">
+                        <input mdbInput type="text" id="present_position" formControlName="present_position" required
+                            class="form-control form-control-sm">
+                        <label for="present_position" class="">Present Position</label>
+                    </div>
+                    <div class="md-form form-sm">
+                        <input mdbInput type="text" id="type_of_membership" formControlName="type_of_membership"
+                            required class="form-control form-control-sm">
+                        <label for="type_of_membership" class="">Type of Membership</label>
+                    </div>
+                    <div class="md-form form-sm">
+                        <input mdbInput type="text" id="type_of_membership" formControlName="type_of_membership"
+                            required class="form-control form-control-sm">
+                        <label for="type_of_membership" class="">Type of Membership</label>
+                    </div>
+                    <div class="md-form form-sm">
+                        <input mdbInput type="text" id="offcial_address" formControlName="offcial_address" required
+                            class="form-control form-control-sm">
+                        <label for="offcial_address" class="">Offcial Address</label>
+                    </div>
+                    <div class="md-form form-sm">
+                        <input mdbInput type="text" id="residence_address" formControlName="residence_address" required
+                            class="form-control form-control-sm">
+                        <label for="residence_address" class="">Residence Address</label>
+                    </div>
+                    <div class="md-form form-sm">
+                        <input mdbInput type="text" id="total_published" formControlName="total_published" required
+                            class="form-control form-control-sm">
+                        <label for="total_published" class="">Total Published</label>
+                    </div>
+                    <div class="md-form form-sm">
+                        <input mdbInput type="text" id="total_issued" formControlName="total_issued" required
+                            class="form-control form-control-sm">
+                        <label for="total_issued" class="">Total Issued</label>
+                    </div>
+                    <div class="md-form form-sm">
+                        <input mdbInput type="text" id="transaction_id" formControlName="transaction_id" required
+                            class="form-control form-control-sm">
+                        <label for="transaction_id" class="">Transaction Id</label>
+                    </div>
+                    <div class="md-form form-sm">
+                        <input mdbInput type="text" id="amount_paid" formControlName="amount_paid" required
+                            class="form-control form-control-sm">
+                        <label for="amount_paid" class="">Amount Paid</label>
+                    </div>
+                    <div class="md-form form-sm">
+                        <input mdbInput type="text" id="signature" formControlName="signature" required
+                            class="form-control form-control-sm">
+                        <label for="signature" class="">Signature</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

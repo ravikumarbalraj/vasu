@@ -1,0 +1,244 @@
+<!-- <mdb-carousel [animation]="'slide'" class="mb-5 carousel_banner">
+    <mdb-carousel-item *ngFor="let Slide of Slider;let i= index;">
+        <img class="d-block w-100" src="{{ url+Slide.image }}" alt="{{Slide.title}}">
+         <img class="d-block w-100" src="assets/images/banner1.jpg" alt="">
+    </mdb-carousel-item>
+</mdb-carousel> -->
+<div class="mainBanner mb-5">
+    <owl-carousel-o [options]="customOptionsMainBanner">
+        <ng-template carouselSlide *ngFor="let Slide of Slider;let i= index;">
+            <img class="d-block w-100" src="{{ url+Slide.image }}" alt="{{Slide.title}}">
+        </ng-template>
+    </owl-carousel-o>
+</div>
+
+<div class="mb-4" *ngIf="About != null">
+    <h2 class="marquee_title float-left">Latest News <span><img src="assets/images/new-sticker.png"></span></h2>
+    <p class="marquee">
+        <span>
+            <small *ngFor="let news of latestNews;let i= index;">{{news.title}}</small>
+        </span>
+    </p>
+</div>
+
+<div class="container">
+    <div class="homeIconSection">
+        <ul>
+            <li *ngFor="let Members of Member_Master;let i= index;">
+                <a [routerLink]="['/members/'+Members.id]">
+                    <span><img src='{{url+Members.image}}'></span>
+                    <p>{{Members.title}}</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="latestUpdates containerInner">
+        <div class="row mb-5">
+            <div class="col-lg-6 col-12">
+                <h2 class="newHeading">Latest Updates</h2>
+                <div class="latestUpdateInner">
+                    <owl-carousel-o [options]="singleSliderWithNav">
+                        <ng-template carouselSlide *ngFor="let obj of LatestUpdates;let i= index;">
+                            <a href="{{obj.link}}" target="_blank"><img class="d-block w-100" src="{{ url+obj.image }}" alt="{{obj.title}}"></a>
+                        </ng-template>
+                    </owl-carousel-o>
+                </div>
+            </div>
+            <div class="col-lg-6 col-12">
+                <h2 class="newHeading">What’s New</h2>
+                <div class="scrollBox whatsNew blur">
+                    <ul class="scrollVertical">
+                        <li *ngFor="let obj of WhatsNewList;let i= index;">
+                            <h4> <a href="{{obj.link}}" target="_blank"><img src="assets/images/new_icons.png">{{obj.title}}</a></h4>
+                            <p> <a href="{{obj.link}}" target="_blank">{{obj.description}}</a></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-5">
+            <div class="col-lg-6 col-12">
+                <h2 class="newHeading">Recently Published Articles</h2>
+                <div class="scrollBox blur">
+                    <ul class="recentPublication scrollVertical">
+                        <li *ngFor="let obj of Published_ArticlesList;let i= index;">
+                            <a target="_blank" href="{{obj.link}}">{{obj.title}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6 col-12 nationPresident" *ngIf="About != null">
+                <h2 class="newHeading">From the Desk of the National President</h2>
+                <div class="row">
+                    <div class="col-lg-5 col-sm-6 col-12 ">
+                        <img id="nationPresidentimg" src="{{url+About.from_desk_image}}">
+                    </div>
+                    <div class="col-lg-7 col-sm-6 col-12">
+                        <p id="nationPresidentP" [innerHTML]="aboutNationPresidenttext"></p>
+                        <a *ngIf="aboutNationPresidenttextReadMore" (click)="aboutNationPresidentread(false)"
+                            href="javascript:void(0)">Read More</a>
+                        <a *ngIf="!aboutNationPresidenttextReadMore" (click)="aboutNationPresidentread(true)"
+                            href="javascript:void(0)">Read Less</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="homeCertifiedBy">
+    <div class="container">
+        <h2 class="newHeading mb-4">We are Associated with</h2>
+        <owl-carousel-o [options]="customOptionsCertifiedBy">
+            <ng-template *ngFor="let Certify of Certified;let i= index;" carouselSlide>
+                <a href="{{Certify.link}}" target="_blank">
+                    <img src="{{ url+Certify.image }}" alt="{{Certify.title}}">
+                </a>
+            </ng-template>
+        </owl-carousel-o>
+    </div>
+</div>
+
+<div class="container">
+    <div class="containerInner mb-5">
+        <div class="row">
+            <div class="col-lg-6 col-12">
+                <h2 class="newHeading">We are Approved by</h2>
+                <owl-carousel-o [options]="customOptionsAssociatedList">
+                    <ng-template *ngFor="let obj of AssociatedList;let i= index;" carouselSlide>
+                        <img src="{{ url+obj.image }}">
+                    </ng-template>
+                </owl-carousel-o>
+            </div>
+            <div class="col-lg-6 col-12" *ngIf="About != null">
+                <h2 class="newHeading">Apply for</h2>
+                <div class="applyBox color1">
+                    <a [routerLink]="['/membership']">
+                        <span class="img"><img src="assets/images/apply-icon1.png"></span>
+                        <div class="content">
+                            <p>{{About.membership_title}}</p>
+                            <span>{{About.membership_description}}</span>
+                        </div>
+                        <span class="arrow">
+                            <img src="assets/images/right-arrow.png">
+                        </span>
+                    </a>
+                </div>
+                <div class="applyBox color2">
+                    <a [routerLink]="['/awards']">
+                        <span class="img"><img src="assets/images/apply-icon1.png"></span>
+                        <div class="content">
+                            <p>{{About.award_title}}</p>
+                            <span>{{About.award_description}}</span>
+                        </div>
+                        <span class="arrow"><img src="assets/images/right-arrow.png"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="RenownedSpeakers">
+        <h2 class="newHeading">Renowned Speakers</h2>
+        <owl-carousel-o [options]="reownedSpeakers">
+            <ng-template *ngFor="let obj of Renownedspeaker;let i= index;" carouselSlide>
+                <div class="speaker">
+                    <img src="{{url+obj.image}}">
+                    <div class="content">
+                        <h4>{{obj.title}}</h4>
+                        <p>{{obj.description}}</p>
+                    </div>
+                </div>
+            </ng-template>
+        </owl-carousel-o>
+    </div>
+    <div class="publication">
+        <h2 class="newHeading">Publications</h2>
+        <div class="row">
+            <div class="col-lg-9 col-12">
+                <owl-carousel-o [options]="publicationSlider">
+                    <ng-template *ngFor="let obj of Journal_Publication;let i= index;" carouselSlide>
+                        <div class="publicationInner">
+                            <owl-carousel-o [options]="publicationImageSlider">
+                                <ng-template *ngFor="let subobj of obj.multiimages" carouselSlide>
+                                    <img src="{{url+subobj.image}}">
+                                </ng-template>
+                            </owl-carousel-o>
+                            <div class="content">
+                                <h4>{{obj.title}}</h4>
+                            </div>
+                        </div>
+                    </ng-template>
+                </owl-carousel-o>
+            </div>
+            <div class="col-lg-3 col-12">
+                <ul>
+                    <li>
+                        <div class="PublicationBox color1">
+                            <a style="color: inherit;" href="https://www.bioticapublications.com/editor-reviewer-form"
+                                target="_blank">
+                                <span><img src="assets/images/apply-icon1.png"></span>
+                                <p>Join as</p>
+                                <h3>Editor</h3>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="PublicationBox color2">
+                            <a href="https://www.bioticapublications.com/" target="_blank">
+                                <span><img src="assets/images/book-icon1.png"></span>
+                                <p>Submit</p>
+                                <h3>Book</h3>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="PublicationBox color2">
+                            <a style="color: inherit;" href="https://www.bioticapublications.com/editor-reviewer-form"
+                                target="_blank">
+                                <span><img src="assets/images/reviewer-icon1.png"></span>
+                                <p>Join as</p>
+                                <h3>Reviewer</h3>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="PublicationBox color1">
+                            <a href="https://bioticacentral.com/index.php/biotica/login" target="_blank">
+                                <span><img src="assets/images/article-icon1.png"></span>
+                                <p>Submit</p>
+                                <h3>Articles</h3>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="collaboratedWith mb-4">
+    <div class="container">
+        <h2 class="newHeading center">We are proudly collaborated with</h2>
+        <owl-carousel-o [options]="collaboratedWith">
+            <ng-template *ngFor="let obj of Collaborator;let i= index;" carouselSlide>
+                <img src="{{url+obj.image}}">
+            </ng-template>
+        </owl-carousel-o>
+    </div>
+</div>
+<div class="RenownedSpeakers">
+    <div class="container">
+        <h2 class="newHeading">Meet Our Team</h2>
+        <owl-carousel-o [options]="meetTeams">
+            <ng-template *ngFor="let obj of Our_Team;let i= index;" carouselSlide>
+                <div class="speaker">
+                    <img src="{{url+obj.image}}">
+                    <div class="content">
+                        <h4>{{obj.title}}</h4>
+                        <p>{{obj.description}}</p>
+                    </div>
+                </div>
+            </ng-template>
+        </owl-carousel-o>
+    </div>
+</div>

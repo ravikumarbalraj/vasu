@@ -1,0 +1,22 @@
+
+
+<div class="mt-5">
+    <div class="container">
+        <h2 class="page_title">{{SingleGalleryList.title}}</h2>
+        <div class="row mb-5">
+            <div class="col-sm-6 col-12 mb-4">
+                <img src="{{url+SingleGalleryList.image}}">
+            </div>
+            <div class="col-sm-6 col-12 mb-4">
+                <h3>{{SingleGalleryList.title}}</h3>
+                <p [innerHTML]="SingleGalleryList.description"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-6 col-12 mb-4" *ngFor="let gallery of GalleryList; let i=index;">
+                <img src="{{url+gallery.image}}">
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,46 @@
+
+
+<div class="mt-5">
+    <div class="container">
+        <h2 class="page_title">Gallery</h2>
+        <div class="row gallery">
+            <div *ngFor="let gallery of GalleryList;let i= index;" class="col-md-4 col-sm-6 col-12 mb-4 text-center">
+                <a [routerLink]="['/gallery-detail']" [queryParams]="{ref_id:gallery.id}">
+                    <img src="{{ url+gallery.image }}">
+                </a>
+                <h2><a [routerLink]="['/gallery-detail']" 
+                    [queryParams]="{ref_id:gallery.id}">{{ gallery.title }}</a></h2>
+            </div>
+
+
+            <!-- <div class="col-md-4 col-sm-6 col-12 mb-4">
+                <a [routerLink]="['/gallery-detail']"><img src="assets/images/banner1.jpg"></a>
+            </div>
+            <div class="col-md-4 col-sm-6 col-12 mb-4">
+                <img src="assets/images/banner2.jpg">
+            </div>
+            <div class="col-md-4 col-sm-6 col-12 mb-4">
+                <img src="assets/images/banner3.jpg">
+            </div>
+            <div class="col-md-4 col-sm-6 col-12 mb-4">
+                <img src="assets/images/banner4.jpg">
+            </div>
+            <div class="col-md-4 col-sm-6 col-12 mb-4">
+                <img src="assets/images/banner5.jpg">
+            </div>
+            <div class="col-md-4 col-sm-6 col-12 mb-4">
+                <img src="assets/images/banner6.jpg">
+            </div>
+            <div class="col-md-4 col-sm-6 col-12 mb-4">
+                <img src="assets/images/banner7.jpg">
+            </div>
+            <div class="col-md-4 col-sm-6 col-12 mb-4">
+                <img src="assets/images/banner8.jpg">
+            </div>
+            <div class="col-md-4 col-sm-6 col-12 mb-4">
+                <img src="assets/images/banner9.jpg">
+            </div> -->
+        </div>
+    </div>
+</div>
+

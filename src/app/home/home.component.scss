@@ -1,0 +1,29 @@
+.sbercls {
+    background: #00582b;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+.homeIconSection li p a {
+    color: inherit;
+}
+.certifiedLogo {
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        li {
+            margin-right: 15px;
+            margin-bottom: 15px;
+            img {
+                max-height: 50px;
+            }
+            a {
+                padding: 0 !important;
+                border: none !important;
+                &:after {
+                    display: none !important;
+                }
+            }
+        }
+    }
+}

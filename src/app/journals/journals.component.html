@@ -1,0 +1,51 @@
+<div class="mt-5">
+    <div class="container">
+        <h2 class="page_title">Journal List</h2>
+
+        <div class="row member_page">
+            <div *ngFor="let Journal of Journal;let i= index;" class="col-lg-4 col-md-4 col-6 text-center mb-4">
+                <div class="member_page_list">
+                    <a href="{{Journal.link}}" target="_blank">
+                        <img src="{{ url+Journal.image }}">
+                        <h3><a href="{{Journal.link}}">{{ Journal.title }}</a></h3>
+                        <p [innerHTML]="Journal.description"></p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <ul class="text-right">
+    <li><i class="fas fa-chevron-circle-left"></i>
+        Integrated Soil, Water and Nutrient Management
+    </li>
+    <li><i class="fas fa-chevron-circle-left"></i>
+        Farming System
+        Approaches
+    </li>
+    <li><i class="fas fa-chevron-circle-left"></i>
+        Plant Breeding and Biotechnology
+    </li>
+    <li><i class="fas fa-chevron-circle-left"></i>
+        Improved Shifting Cultivation Practices
+    </li>
+    <li><i class="fas fa-chevron-circle-left"></i>
+        Biodiversity Conservation
+    </li>
+    <li><i class="fas fa-chevron-circle-left"></i>
+        Plant Health Management
+    </li>
+    <li><i class="fas fa-chevron-circle-left"></i>
+        Fishery Management
+    </li>
+    <li><i class="fas fa-chevron-circle-left"></i>
+        Advances in Sericulture Research
+    </li>
+    <li><i class="fas fa-chevron-circle-left"></i>
+        Agricultural Production Systems &amp;
+        Agribusiness
+    </li>
+    <li><i class="fas fa-chevron-circle-left"></i>
+        Environment, Impact of Climate Change
+    </li>
+</ul> -->

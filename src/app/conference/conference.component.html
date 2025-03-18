@@ -1,0 +1,19 @@
+
+
+<div class="mt-5">
+    <div class="container">
+        <h2 class="page_title">Conference List</h2>
+        <div class="row member_page">
+            <div *ngFor="let conf of Conference;let i= index;" class="col-lg-3 col-md-4 col-6 text-center mb-4">
+                <div class="member_page_list">
+                    <a href="{{conf.link}}" target="_blank">
+                        <img src="{{ url+conf.image }}">
+                        <h3><a href="#">{{ conf.title }}</a></h3>
+                        <p [innerHTML]="conf.description"></p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

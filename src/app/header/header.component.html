@@ -1,0 +1,133 @@
+<div class="top_bar" *ngIf="About != null">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-12 header_social">
+                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-skype"></i></a>
+            </div>
+            <div class="col-md-6 col-12">
+                <p class="text-right">
+                    {{About.regd}}<span class="d-inline-block">/</span> NITI Aayog ID&nbsp;No.&nbsp;{{About.niti}}<span
+                        class="d-inline-block">/</span> ISO&nbsp;9001:2015 Certified
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<header *ngIf="About != null">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 newHeader">
+                <div class="newHeaderItem one">
+                    <img class="logo mr-4" src="assets/images/SBER-Logo.png">
+                </div>
+                <div class="newHeaderItem two">
+                    <img class="socityLogo mr-4" src="assets/images/sociaity_header.jpg">
+                </div>
+                <div class="newHeaderItem three">
+                    <p class="mb-1"><img class="nitiLogo mr-4" src="assets/images/niti-logo.png"></p>
+                    <label><i class="fas fa-phone-alt"></i>&nbsp;&nbsp;Whatsapp</label><br>
+                    <a href="tel:+91-6009069989">{{About.whatsapp}}</a>
+                </div>
+                <div class="newHeaderItem four">
+                    <p class="departmentText">
+                        Department of Co-Operation
+                        <span>Govt. of Tripura</span>
+                    </p>
+                    <label><i class="fas fa-envelope"></i>&nbsp;&nbsp;Email</label><br>
+                    <a href="mailto:secretary.sber@gmail.com">{{About.email}}</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</header>
+
+
+<!--Navbar  mdbStickyHeader -->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark header_bg">
+    <!-- Collapsible content -->
+    <links>
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a [routerLink]="['/home']" [routerLinkActive]="['active']" class="nav-link waves-light"
+                    mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a [routerLink]="['/about']" [routerLinkActive]="['active']" class="nav-link waves-light"
+                    mdbWavesEffect>About Us</a>
+            </li>
+
+            <li class="nav-item">
+                <a [routerLink]="['/journals']" [routerLinkActive]="['active']" class="nav-link waves-light"
+                    mdbWavesEffect>Journals</a>
+            </li>
+            <!-- Dropdown -->
+            <!-- <li class="nav-item dropdown" dropdown>
+                <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light"
+                    mdbWavesEffect>
+                    Journals<span class="caret"></span></a>
+                <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                    <a class="dropdown-item waves-light" mdbWavesEffect href="#">Research Biotica</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect href="#">Biotica Research Today</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect href="#">Biotica Journal of Plant Health
+                        Issues</a>
+                </div>
+            </li> -->
+            <li class="nav-item">
+                <a [routerLink]="['/conference']" [routerLinkActive]="['active']" class="nav-link waves-light"
+                    mdbWavesEffect>Conference</a>
+            </li>
+            <li class="nav-item">
+                <a [routerLink]="['/awards']" [routerLinkActive]="['active']" class="nav-link waves-light"
+                    mdbWavesEffect>Awards</a>
+            </li>
+
+            <li class="nav-item">
+                <a [routerLink]="['/membership']" [routerLinkActive]="['active']" class="nav-link waves-light"
+                    mdbWavesEffect>Membership</a>
+            </li>
+
+            <!-- Dropdown -->
+            <!-- <li class="nav-item dropdown" dropdown>
+                <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light"
+                    mdbWavesEffect>
+                    Membership<span class="caret"></span></a>
+                <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/fellow-members']">Fellow
+                        Member</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/fellow-members']">Honorary
+                        Fellow Member</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/fellow-members']">Regular
+                        Member</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/fellow-members']">Life
+                        Member</a>
+                </div>
+            </li> -->
+            <li class="nav-item">
+                <a [routerLink]="['/activities']" [routerLinkActive]="['active']" class="nav-link waves-light"
+                    mdbWavesEffect>Activities</a>
+            </li>
+            <li class="nav-item">
+                <a [routerLink]="['/download']" [routerLinkActive]="['active']" class="nav-link waves-light"
+                    mdbWavesEffect>Download</a>
+            </li>
+            <li class="nav-item">
+                <a [routerLink]="['/gallery']" [routerLinkActive]="['active']" class="nav-link waves-light"
+                    mdbWavesEffect>Gallery</a>
+            </li>
+            <li class="nav-item">
+                <a [routerLink]="['/contact']" [routerLinkActive]="['active']" class="nav-link waves-light"
+                    mdbWavesEffect>Contact Us</a>
+            </li>
+        </ul>
+        <!-- Links -->
+    </links>
+    <!-- Collapsible content -->
+</mdb-navbar>
+<!--/.Navbar-->
